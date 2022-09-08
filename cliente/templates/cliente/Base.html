@@ -1,0 +1,36 @@
+{% load static %}
+{% load bootstrap4 %}
+{% load bootstrap_icons %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pró-Limper</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <script type="text/javascript" src="{% static 'scripts.js' %}"></script>
+</head>
+<body>
+    {# Load CSS and JavaScript #}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+
+    <div class="container">
+        <div class="d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <header class="masthead mb-auto">
+                <div class="inner">
+                    <h3 class="masthead-brand">Pró-Limper</h3>
+                    <nav class="nav nav-masthead justify-content-center"> 
+                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                        <a class="nav-link active" href="{% url 'cad_Servico' %}">Novo Serviços</a>
+                    </nav>
+                </div>
+            </header>
+            {% block content %}
+
+            {% endblock content %}
+        </div>
+    </div>      
+</body>
+</html>

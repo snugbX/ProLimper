@@ -1,0 +1,9 @@
+{% extends 'cliente/Base.html' %}
+{% block content %}
+    <h2>Cadastro Vendedor</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{cad_VendedorForm.as_p}}
+        <input type="submit" name="Salvar">
+    </form>
+{% endblock content %}

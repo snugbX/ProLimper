@@ -1,0 +1,8 @@
+/venv/
+venv/
+venv
+.env
+.env.exemple
+development.py
+production.py
+testing.py

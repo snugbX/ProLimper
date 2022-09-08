@@ -1,0 +1,120 @@
+{% extends 'cliente/Base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+    
+    <button id="bt_MostraDiv" type="button" onclick="Mudaestado('ListaServico')">Listar Serviços</button>
+    <div id="ListaServico" class="Lista">
+        <h2>Lista de Serviços</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Cliente</th>
+                    <th>Vendedor</th>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                    <th>Data Solicitação</th>
+                    <th>Data Execução</th>
+                    <th>Status</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for servico in servicos %}
+                    <tr>
+                        <td>{{servico.Cliente.nome}}</td>
+                        <td>{{servico.Vendedor.nome}}</td>
+                        <td>{{servico.Descricao}}</td>
+                        <td>{{servico.Valor}}</td>
+                        <td>{{servico.data_Solicitacao | date:"d/m/Y" }}</td>
+                        <td>{{servico.data_Execucao | date:"d/m/Y" }}</td>
+                        <td>{% if servico.Status == 'I' %} 
+                                Iniciado
+                            {% elif servico.Status == 'F' %}
+                                Finalizado
+                            {% elif servico.Status == 'N_I' %}
+                                Não iniciado
+                            {% elif servico.Status == 'C_P' %}
+                                Com problema
+                            {% endif %}  
+                            </td>
+                        <td>
+                            <a href="{% url 'up_Servico' servico.id %}">Editar</a>
+                            <a href="{% url 'del_Servico' servico.id %}">Deletar</a>
+                            <a href="{% url 'GeraPDF_Servico' servico.id %}">PDF</a>
+                        </td>
+                    </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+    </div>
+    
+    <button id="bt_MostraDiv" type="button" onclick="Mudaestado('ListaClientes')">Listar Clientes</button>
+    <div id="ListaClientes" class="Lista">
+        <h2>Lista de Clientes</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>CNPJ</th>
+                    <th>Telefone</th>
+                    <th>Endereço</th>
+                    <th>Bairro</th>
+                    <th>Numero</th>
+                    <th>CEP</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for cli in clientes %}
+                    <tr>
+                        <td>{{cli.nome}}</td>
+                        <td>{{cli.CPF}}</td>
+                        <td>{{cli.CNPJ}}</td>
+                        <td>{{cli.telefone}}</td>
+                        <td>{{cli.endereco}}</td>
+                        <td>{{cli.bairro}}</td>
+                        <td>{{cli.numero_Casa}}</td>
+                        <td>{{cli.CEP}}</td>
+                        <td>
+                            <a href="{% url 'up_Cliente' cli.id %}">Editar</a>
+                            <a href="{% url 'del_Cliente' cli.id %}">Deletar</a>
+                        </td>
+                    </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+    </div>
+
+    <button id="bt_MostraDiv" type="button" onclick="Mudaestado('ListaVendedor')">Listar Vendedores</button>
+    <div id="ListaVendedor" class="Lista">
+        <h2>Lista de Vendedores</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>CNPJ</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ven in vendedores %}
+                    <tr>
+                        <td>{{ven.nome}}</td>
+                        <td>{{ven.CPF}}</td>
+                        <td>{{ven.CNPJ}}</td>
+                        <td>{{ven.telefone}}</td>
+                        <td>{{ven.Email}}</td>
+                        <td>
+                            <a href="{% url 'up_Vendedor' ven.id %}">Editar</a>
+                            <a href="{% url 'del_Vendedor' ven.id %}">Deletar</a>
+                        </td>
+                    </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock content %}

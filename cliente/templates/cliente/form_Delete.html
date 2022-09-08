@@ -1,0 +1,14 @@
+{% extends 'cliente/Base.html' %}
+{% block content %}
+	<h3>Excluir Registros</h3>
+
+	<form method="post">
+		{% csrf_token %}
+		<p class="lead">
+			Desejá realmente excluir o Registro: <strong>{{object}}</strong>?
+		</p>
+
+		<input type="submit" value="Excluir">
+	</form>
+	<a href="{% url 'home' %}">Cancelar</a>
+{% endblock content %}

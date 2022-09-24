@@ -1,36 +1,37 @@
-<!DOCTYPE html>
 {% load static %}
 {% load bootstrap4 %}
 {% load bootstrap_icons %}
 
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
-    <script type="text/javascript" src="{% static 'scripts.js' %}"></script>
-    <style type="text/css">
-        @page{
-            size: letter portrait;
-            margin: 2cm;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylesPDF.css' %}">
+    <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
     <title>Pró-Limper</title>
+    <style type="text/css">
+    </style>
 </head>
 <body>
-    {# JavaScript #}
+    {# Load CSS and JavaScript #}
+    {% bootstrap_css %}
     {% bootstrap_javascript jquery='full' %}
 
-    <div class="container">
+    <div class="container" id="container">
         <div id="content_frame" class="d-flex w-100 h-100 p-3 mx-auto flex-column">
-            <header class="masthead mb-auto">
+            <header id="Header">
                 <div id="Logotipo">
-                    <h1>PRÓ-LIMPER</h1>
-                    <h3>Proteção e Limpeza para Tecidos</h3>
-                    <p>Tels.: 21 3346-7590 / 21 98707-6705</p>
+                    <div class="img_logo"><img src="{% static 'img/aguaProibida.jpg' %}"></div>
+                    <div id="txt_logo">
+                        <h1>PRÓ-LIMPER</h1>
+                        <h3>Proteção e Limpeza para Tecidos</h3>
+                        <p>Tels.: 21 3346-7590 / 21 98707-6705</p>
+                    </div>
+                    <div class="img_logo"><img src="{% static 'img/aguaProibida.jpg' %}"></div>
                 </div>
             </header>
-            <main>
+            <main id="main">
                 <div id="dados">
                     <h2>PRESTAÇÃO DE SERVIÇO</h2>
                     <p>DATA: {{servicos.data_Solicitacao | date:"d/m/Y" }}</p>
@@ -39,8 +40,8 @@
                     <p>BAIRRO: {{servicos.Cliente.bairro}}</p>
                     <p>VENDEDOR: {{servicos.Vendedor.nome}} LOJA: </p>
                 </div>
-                <div>
-                    <table>
+                <div id="content_table">
+                    <table id="table1" class="table table-striped">
                         <thead >
                             <th scope="col">Quantidade</th>
                             <th scope="col">Descrição</th>
@@ -48,14 +49,36 @@
                         </thead>
                         <tbody>
                             <tr class="table_Linha">
-                                <td scope="row">#</td>
+                                <td></td>
                                 <td>{{servicos.Descricao}}</td>
                                 <td>{{servicos.Valor}}</td>
                             </tr>
+                            <tr class="table_Linha">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="table_Linha">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="table_Linha">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="table_Linha">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
                         </tbody>
                         <tfoot>
                             <th scope="row">Total</th>
                             <td>{{servicos.Valor}}</td>
+                            <td id="td_sumir"></td>
                         </tfoot>
                         
                     </table>

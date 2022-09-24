@@ -1,0 +1,25 @@
+#container{
+    width: 100%;
+    margin: auto;
+    padding: 10px;
+    border: 2px solid blue;
+}
+
+#Logotipo{
+    width: 100%;
+    height: 200px;
+    float: center;
+}
+#txt_logo{
+    width: 50%;
+    float: left;
+}
+
+.img_logo{
+    
+}
+.img_logo img{
+    width: 10%;
+    float: left;
+}
+

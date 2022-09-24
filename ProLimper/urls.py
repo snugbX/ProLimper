@@ -16,18 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from cliente.views import home, cad_Cliente, cad_Vendedor, cad_Servico, update_Servico, delete_Servico
-from cliente.views import update_Cliente, delete_Cliente, delete_Vendedor, update_Vendedor , PDF_Servicos
+from cliente.views import update_Cliente, delete_Cliente, delete_Vendedor, update_Vendedor , PDF_Servicos2, HTML_Servicos_PDF
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
+    path('HTML_Servicos_PDF/<int:pk>/', HTML_Servicos_PDF, name='HTML_Servicos_PDF'),
     path('Novo_cliente/', cad_Cliente, name='cad_Cliente'),
     path('Novo_vendedor/', cad_Vendedor, name='cad_Vendedor'),
     path('Novo_servico/', cad_Servico, name='cad_Servico'),
 
-    path('PDF_Servicos/<int:pk>/', PDF_Servicos.as_view(), name='GeraPDF_Servico'),
+    #path('PDF_Servicos/<int:pk>/', PDF_Servicos.as_view(), name='GeraPDF_Servico'),
+    path('PDF_Servicos/<int:pk>/', PDF_Servicos2, name='GeraPDF_Servico'),
     path('Update_servico/<int:pk>/', update_Servico, name='up_Servico'),
     path('Deletar_servico/<int:pk>/', delete_Servico.as_view(), name='del_Servico'),
 

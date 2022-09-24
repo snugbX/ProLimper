@@ -1,7 +1,7 @@
 {% extends 'cliente/Base.html' %}
 {% load bootstrap4 %}
+{% load bootstrap_icons %}
 {% block content %}
-    
     <button id="bt_MostraDiv" type="button" onclick="Mudaestado('ListaServico')">Listar Serviços</button>
     <div id="ListaServico" class="Lista">
         <h2>Lista de Serviços</h2>
@@ -40,7 +40,7 @@
                         <td>
                             <a href="{% url 'up_Servico' servico.id %}">Editar</a>
                             <a href="{% url 'del_Servico' servico.id %}">Deletar</a>
-                            <a href="{% url 'GeraPDF_Servico' servico.id %}">PDF</a>
+                            <a href="{% url 'HTML_Servicos_PDF' servico.id %}">PDF</a>
                         </td>
                     </tr>
                 {% endfor%}

@@ -22,6 +22,7 @@ def HTML_Servicos_PDF(request, pk):
     servicos = Servicos.objects.get(pk=pk)
     data = {
         'servicos': servicos,
+        'data_atual': datetime.date.today().strftime("%d/%m/%Y")
     }
     return render(request, 'cliente/PDF_servico.html', data)
 

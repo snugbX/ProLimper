@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="{% static 'css/stylesPDF.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
     <title>Pró-Limper</title>
     <style type="text/css">
@@ -18,14 +19,17 @@
     {% bootstrap_css %}
     {% bootstrap_javascript jquery='full' %}
 
+    <div>
+        <button onclick="GeraPDF('container')">Imprimir</button>
+    </div>
     <div class="container" id="container">
         <div id="content_frame" class="d-flex w-100 h-100 p-3 mx-auto flex-column">
             <header id="Header">
                 <div id="Logotipo">
                     <div class="img_logo"><img src="{% static 'img/aguaProibida.jpg' %}"></div>
                     <div id="txt_logo">
-                        <h1>PRÓ-LIMPER</h1>
-                        <h3>Proteção e Limpeza para Tecidos</h3>
+                        <p>PRÓ-LIMPER</p>
+                        <p>Proteção e Limpeza para Tecidos</p>
                         <p>Tels.: 21 3346-7590 / 21 98707-6705</p>
                     </div>
                     <div class="img_logo"><img src="{% static 'img/logo_garantia.png' %}"></div>
@@ -33,7 +37,7 @@
             </header>
             <main id="main">
                 <div id="dados">
-                    <h2>PRESTAÇÃO DE SERVIÇO</h2>
+                    <h4>PRESTAÇÃO DE SERVIÇO</h4>
                     <p>DATA: {{servicos.data_Solicitacao | date:"d/m/Y" }}</p>
                     <p>NOME: {{servicos.Cliente.nome}}</p>
                     <p>ENDEREÇO: {{servicos.Cliente.endereco}}</p>
@@ -83,7 +87,7 @@
                     </table>
                 </div>
                 <div>
-                    <h2>Declaração de Satisfação</h2>
+                    <h4>Declaração de Satisfação</h4>
                     <p>Declaro esta satisfeito com o serviço execultado pela PRÓ-Limper em minha residência, sendo assim nada tenho a reclamar desta empresa.</p>
                     <p>A PRÓ-Limper, não autoriza e não se responsabiliza por serviços executados por nossos técnicos (Funcionários) sem nossa autorização por escrito.</p>
                     <p>{{ data_atual }} Assinatura do cliente : ___________________________________________</p>

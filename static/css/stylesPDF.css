@@ -33,3 +33,9 @@
     width: 80%;
     margin-left: 8%;
 }
+
+
+#declaracao{
+    display: grid;
+    grid-template-columns: 2;
+}

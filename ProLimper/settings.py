@@ -87,11 +87,12 @@ WSGI_APPLICATION = 'ProLimper.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('BdName'),
-        'USER': os.getenv('BdUser'),
-        'PASSWORD': os.getenv('BdPassword'),
-        'HOST': os.getenv('BdHost'),
-        'PORT': os.getenv('BdPort'),
+        'NAME': 'boaqbwabgmwyk8ld3up3',
+        'USER': 'uuu9efdmyw3gdcxj',
+        'PASSWORD': '3ZYLq67ql0HCdQy0wktQ',
+        'HOST': 'boaqbwabgmwyk8ld3up3-mysql.services.clever-cloud.com',
+        'PORT': '3306'
+,
     }
 }
 

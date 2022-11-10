@@ -7,6 +7,7 @@ class ClienteForm(ModelForm):
 		model = Cliente
 		fields = ['nome','CPF','CNPJ', 'telefone', 'Whatsapp', 'endereco', 'bairro', 'numero_Casa', 'CEP']
 
+
 class VendedorForm(ModelForm):
 	class Meta:
 		model = Vendedor
@@ -22,9 +23,11 @@ class ServicoForm(ModelForm):
 	class Meta:
 		model = Servicos
 		fields = ['Cliente','Vendedor','Descricao','Valor','data_Execucao', 'Status']
+		
 
 	#def __init__(self, *args, **kwargs):
-	#	super().__init__(*args, **kwargs)
+	#	super(ModelForm, self).__init__(*args, **kwargs)
+	#
 	#	status_opc = (
 	#		('I','iniciado'),
 	#		('F','Finalizado'),

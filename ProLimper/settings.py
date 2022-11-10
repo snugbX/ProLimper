@@ -11,11 +11,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-from dotenv import load_dotenv
 from environs import Env
 import os
 
-load_dotenv()
 env = Env()
 env.read_env()
 
@@ -31,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', True)
+DEBUG = env('DEBUG', True)
 
 ALLOWED_HOSTS = ['*']
 
@@ -86,12 +84,12 @@ WSGI_APPLICATION = 'ProLimper.wsgi.application'
 # Banco de dados MYSQL
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv('BdEngine'),
-        'NAME': os.getenv('BdName'),
-        'USER': os.getenv('BdUser'),
-        'PASSWORD': os.getenv('BdPassword'),
-        'HOST': os.getenv('BdHost'),
-        'PORT': os.getenv('BdPort'),
+        'ENGINE': env('BdEngine'),
+        'NAME': env('BdName'),
+        'USER': env('BdUser'),
+        'PASSWORD': env('BdPassword'),
+        'HOST': env('BdHost'),
+        'PORT': env('BdPort'),
     }
 }
 

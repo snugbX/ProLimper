@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'ProLimper.wsgi.application'
 # Banco de dados MYSQL
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv('BdEngine'),
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': os.getenv('BdName'),
         'USER': os.getenv('BdUser'),
         'PASSWORD': os.getenv('BdPassword'),
